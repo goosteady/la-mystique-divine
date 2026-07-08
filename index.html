@@ -1,0 +1,313 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>La Mystique Divine</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400;1,600&family=Jost:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  :root {
+    --night:   #0D0A14;
+    --deep:    #16102A;
+    --violet:  #2A1F45;
+    --gold:    #C9A84C;
+    --gold2:   #E8C96A;
+    --ivory:   #F8F4EC;
+    --parchment: #EDE4D0;
+    --muted:   #7A6E8A;
+    --text:    #2A2030;
+  }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    font-family: 'Jost', sans-serif;
+    background: var(--ivory);
+    color: var(--text);
+    overflow-x: hidden;
+  }
+
+  /* ── HERO ── */
+  .hero {
+    position: relative;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    overflow: hidden;
+    background: var(--night);
+    padding: 4rem 2rem;
+  }
+
+  .hero-bg {
+    position: absolute; inset: 0;
+    background:
+      radial-gradient(ellipse 70% 60% at 50% 30%, #2A1F4540 0%, transparent 60%),
+      radial-gradient(ellipse 50% 80% at 20% 80%, #C9A84C12 0%, transparent 55%),
+      radial-gradient(ellipse 60% 50% at 80% 70%, #3D1F6018 0%, transparent 55%),
+      linear-gradient(180deg, #0D0A14 0%, #16102A 50%, #0D0A14 100%);
+  }
+
+  .star-field {
+    position: absolute; inset: 0;
+    overflow: hidden;
+  }
+
+  .star {
+    position: absolute;
+    width: 1px; height: 1px;
+    background: #fff;
+    border-radius: 50%;
+  }
+
+  .hero-ornament {
+    position: relative;
+    font-size: 2rem;
+    color: var(--gold);
+    opacity: 0;
+    animation: fadeUp 1s ease 0.2s forwards;
+    margin-bottom: 2rem;
+    letter-spacing: 0.5em;
+  }
+
+  .hero-eyebrow {
+    position: relative;
+    font-family: 'Jost', sans-serif;
+    font-weight: 300;
+    font-size: 0.7rem;
+    letter-spacing: 0.45em;
+    text-transform: uppercase;
+    color: var(--gold);
+    margin-bottom: 2rem;
+    opacity: 0;
+    animation: fadeUp 0.8s ease 0.4s forwards;
+  }
+
+  .hero-title {
+    position: relative;
+    font-family: 'Cormorant Garamond', serif;
+    font-weight: 300;
+    font-style: italic;
+    font-size: clamp(3.5rem, 9vw, 7.5rem);
+    line-height: 1.0;
+    color: var(--ivory);
+    opacity: 0;
+    animation: fadeUp 1s ease 0.7s forwards;
+    letter-spacing: 0.02em;
+  }
+
+  .hero-title span {
+    display: block;
+    font-style: normal;
+    font-size: 0.55em;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--gold);
+    margin-bottom: 0.4em;
+  }
+
+  .hero-divider {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 1rem;
+    margin: 2.5rem auto;
+    opacity: 0;
+    animation: fadeUp 1s ease 1s forwards;
+  }
+
+  .hero-divider::before,
+  .hero-divider::after {
+    content: '';
+    width: 60px;
+    height: 1px;
+    background: linear-gradient(to right, transparent, var(--gold));
+  }
+  .hero-divider::after { background: linear-gradient(to left, transparent, var(--gold)); }
+
+  .divider-diamond {
+    width: 6px; height: 6px;
+    background: var(--gold);
+    transform: rotate(45deg);
+  }
+
+  .hero-sub {
+    position: relative;
+    font-family: 'Cormorant Garamond', serif;
+    font-style: italic;
+    font-weight: 300;
+    font-size: clamp(1.1rem, 2.5vw, 1.45rem);
+    color: #9A8AAA;
+    max-width: 560px;
+    line-height: 1.75;
+    opacity: 0;
+    animation: fadeUp 1s ease 1.2s forwards;
+  }
+
+  /* ── BODY CONTENT ── */
+  .content {
+    max-width: 760px;
+    margin: 0 auto;
+    padding: 7rem 2rem;
+  }
+
+  .section-eyebrow {
+    font-size: 0.65rem;
+    letter-spacing: 0.35em;
+    text-transform: uppercase;
+    color: var(--gold);
+    margin-bottom: 1.75rem;
+    display: block;
+  }
+
+  .content h2 {
+    font-family: 'Cormorant Garamond', serif;
+    font-weight: 300;
+    font-size: clamp(2rem, 4vw, 3rem);
+    color: var(--violet);
+    line-height: 1.25;
+    margin-bottom: 2rem;
+  }
+
+  .content h2 em { font-style: italic; color: var(--gold); }
+
+  .content p {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.2rem;
+    font-weight: 300;
+    line-height: 1.9;
+    color: #3A2A4A;
+    margin-bottom: 1.5rem;
+  }
+
+  /* ── DARK BAND ── */
+  .dark-band {
+    background: var(--deep);
+    padding: 6rem 2rem;
+    text-align: center;
+  }
+
+  .dark-band .section-eyebrow { color: var(--gold); margin-bottom: 1.5rem; display: block; }
+
+  .dark-band blockquote {
+    font-family: 'Cormorant Garamond', serif;
+    font-style: italic;
+    font-weight: 300;
+    font-size: clamp(1.5rem, 3.5vw, 2.2rem);
+    color: var(--ivory);
+    max-width: 680px;
+    margin: 0 auto;
+    line-height: 1.65;
+  }
+
+  .dark-band cite {
+    display: block;
+    margin-top: 2rem;
+    font-family: 'Jost', sans-serif;
+    font-style: normal;
+    font-size: 0.7rem;
+    letter-spacing: 0.3em;
+    text-transform: uppercase;
+    color: var(--muted);
+  }
+
+  /* ── FOOTER ── */
+  footer {
+    background: var(--night);
+    padding: 2.5rem 2rem;
+    text-align: center;
+    font-size: 0.65rem;
+    letter-spacing: 0.25em;
+    text-transform: uppercase;
+    color: #3A3050;
+  }
+
+  /* ── ANIMATIONS ── */
+  @keyframes fadeUp {
+    from { opacity: 0; transform: translateY(20px); }
+    to   { opacity: 1; transform: translateY(0); }
+  }
+
+  @keyframes twinkle {
+    0%, 100% { opacity: 0.2; }
+    50%       { opacity: 0.8; }
+  }
+
+  /* ── RESPONSIVE ── */
+  @media (max-width: 600px) {
+    .content { padding: 4rem 1.5rem; }
+  }
+</style>
+</head>
+<body>
+
+<!-- ══ HERO ══ -->
+<section class="hero">
+  <div class="hero-bg"></div>
+  <div class="star-field" id="stars"></div>
+
+  <p class="hero-eyebrow">Un livre</p>
+  <h1 class="hero-title">
+    <span>La</span>
+    Mystique Divine
+  </h1>
+  <div class="hero-divider"><div class="divider-diamond"></div></div>
+  <p class="hero-sub">
+    Un voyage au cœur du mystère de Dieu —<br>
+    la contemplation, la prière, et l'union divine.
+  </p>
+</section>
+
+<!-- ══ CONTENT ══ -->
+<div class="content">
+  <span class="section-eyebrow">Le Livre</span>
+  <h2>Une invitation à <em>l'union divine</em></h2>
+  <p>
+    Placez ici le contenu de votre livre. Ce texte est un exemple — remplacez-le
+    par vos propres mots, chapitres, et réflexions.
+  </p>
+  <p>
+    La mystique divine est ce mouvement intérieur de l'âme vers Dieu —
+    silencieux, profond, et ineffable. Ce livre cherche à en tracer les contours
+    avec humilité et émerveillement.
+  </p>
+</div>
+
+<!-- ══ DARK BAND ══ -->
+<div class="dark-band">
+  <span class="section-eyebrow">Extrait</span>
+  <blockquote>
+    « L'âme qui se tait devant Dieu entend ce que les mots ne peuvent dire. »
+  </blockquote>
+  <cite>— La Mystique Divine</cite>
+</div>
+
+<footer>
+  La Mystique Divine
+</footer>
+
+<script>
+// Generate star field
+const sf = document.getElementById('stars');
+for (let i = 0; i < 120; i++) {
+  const s = document.createElement('div');
+  s.className = 'star';
+  s.style.cssText = `
+    left: ${Math.random() * 100}%;
+    top: ${Math.random() * 100}%;
+    width: ${Math.random() < 0.8 ? 1 : 2}px;
+    height: ${Math.random() < 0.8 ? 1 : 2}px;
+    opacity: ${Math.random() * 0.6 + 0.1};
+    animation: twinkle ${2 + Math.random() * 4}s ease ${Math.random() * 4}s infinite;
+  `;
+  sf.appendChild(s);
+}
+</script>
+</body>
+</html>
