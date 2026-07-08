@@ -1,32 +1,32 @@
 <!DOCTYPE html>
-<html lang="fr">
+<html lang="en">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>La Mystique Divine</title>
+<title>Divine Mysticism — J. Ribet</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400;1,600&family=Jost:wght@300;400;500&display=swap" rel="stylesheet">
 <style>
   *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
   :root {
-    --night:   #0D0A14;
-    --deep:    #16102A;
-    --violet:  #2A1F45;
-    --gold:    #C9A84C;
-    --gold2:   #E8C96A;
-    --ivory:   #F8F4EC;
-    --parchment: #EDE4D0;
-    --muted:   #7A6E8A;
-    --text:    #2A2030;
+    --night:      #0D0A14;
+    --deep:       #16102A;
+    --violet:     #2A1F45;
+    --gold:       #C9A84C;
+    --gold2:      #E8C96A;
+    --ivory:      #F8F4EC;
+    --parchment:  #EDE4D0;
+    --muted:      #7A6E8A;
+    --text:       #2A2030;
   }
 
   html { scroll-behavior: smooth; }
 
   body {
     font-family: 'Jost', sans-serif;
-    background: var(--ivory);
-    color: var(--text);
+    background: var(--night);
+    color: var(--ivory);
     overflow-x: hidden;
   }
 
@@ -40,8 +40,7 @@
     justify-content: center;
     text-align: center;
     overflow: hidden;
-    background: var(--night);
-    padding: 4rem 2rem;
+    padding: 5rem 2rem 4rem;
   }
 
   .hero-bg {
@@ -53,31 +52,16 @@
       linear-gradient(180deg, #0D0A14 0%, #16102A 50%, #0D0A14 100%);
   }
 
-  .star-field {
-    position: absolute; inset: 0;
-    overflow: hidden;
-  }
+  .star-field { position: absolute; inset: 0; overflow: hidden; }
 
   .star {
     position: absolute;
-    width: 1px; height: 1px;
     background: #fff;
     border-radius: 50%;
   }
 
-  .hero-ornament {
-    position: relative;
-    font-size: 2rem;
-    color: var(--gold);
-    opacity: 0;
-    animation: fadeUp 1s ease 0.2s forwards;
-    margin-bottom: 2rem;
-    letter-spacing: 0.5em;
-  }
-
   .hero-eyebrow {
     position: relative;
-    font-family: 'Jost', sans-serif;
     font-weight: 300;
     font-size: 0.7rem;
     letter-spacing: 0.45em;
@@ -85,7 +69,7 @@
     color: var(--gold);
     margin-bottom: 2rem;
     opacity: 0;
-    animation: fadeUp 0.8s ease 0.4s forwards;
+    animation: fadeUp 0.8s ease 0.3s forwards;
   }
 
   .hero-title {
@@ -97,18 +81,19 @@
     line-height: 1.0;
     color: var(--ivory);
     opacity: 0;
-    animation: fadeUp 1s ease 0.7s forwards;
-    letter-spacing: 0.02em;
+    animation: fadeUp 1s ease 0.6s forwards;
   }
 
-  .hero-title span {
-    display: block;
-    font-style: normal;
-    font-size: 0.55em;
-    letter-spacing: 0.18em;
+  .hero-author {
+    position: relative;
+    margin-top: 1.5rem;
+    font-weight: 300;
+    font-size: 0.75rem;
+    letter-spacing: 0.35em;
     text-transform: uppercase;
-    color: var(--gold);
-    margin-bottom: 0.4em;
+    color: var(--muted);
+    opacity: 0;
+    animation: fadeUp 1s ease 0.9s forwards;
   }
 
   .hero-divider {
@@ -119,22 +104,23 @@
     gap: 1rem;
     margin: 2.5rem auto;
     opacity: 0;
-    animation: fadeUp 1s ease 1s forwards;
+    animation: fadeUp 1s ease 1.1s forwards;
   }
 
   .hero-divider::before,
   .hero-divider::after {
     content: '';
-    width: 60px;
+    width: 70px;
     height: 1px;
-    background: linear-gradient(to right, transparent, var(--gold));
   }
-  .hero-divider::after { background: linear-gradient(to left, transparent, var(--gold)); }
+  .hero-divider::before { background: linear-gradient(to right, transparent, var(--gold)); }
+  .hero-divider::after  { background: linear-gradient(to left,  transparent, var(--gold)); }
 
   .divider-diamond {
     width: 6px; height: 6px;
     background: var(--gold);
     transform: rotate(45deg);
+    flex-shrink: 0;
   }
 
   .hero-sub {
@@ -142,90 +128,224 @@
     font-family: 'Cormorant Garamond', serif;
     font-style: italic;
     font-weight: 300;
-    font-size: clamp(1.1rem, 2.5vw, 1.45rem);
+    font-size: clamp(1.05rem, 2.2vw, 1.35rem);
     color: #9A8AAA;
     max-width: 560px;
-    line-height: 1.75;
+    line-height: 1.8;
     opacity: 0;
-    animation: fadeUp 1s ease 1.2s forwards;
+    animation: fadeUp 1s ease 1.3s forwards;
   }
 
-  /* ── BODY CONTENT ── */
-  .content {
-    max-width: 760px;
-    margin: 0 auto;
-    padding: 7rem 2rem;
+  .scroll-hint {
+    position: absolute;
+    bottom: 2.5rem;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.5rem;
+    color: #40304A;
+    font-size: 0.6rem;
+    letter-spacing: 0.3em;
+    text-transform: uppercase;
+    opacity: 0;
+    animation: fadeUp 1s ease 2s forwards;
+  }
+
+  .scroll-hint::after {
+    content: '';
+    display: block;
+    width: 1px;
+    height: 40px;
+    background: linear-gradient(to bottom, #40304A, transparent);
+    animation: scrollPulse 2s ease infinite;
+  }
+
+  /* ── VOLUMES ── */
+  .volumes-section {
+    background: var(--deep);
+    padding: 6rem 2rem;
+  }
+
+  .volumes-header {
+    text-align: center;
+    margin-bottom: 5rem;
   }
 
   .section-eyebrow {
     font-size: 0.65rem;
-    letter-spacing: 0.35em;
+    letter-spacing: 0.38em;
     text-transform: uppercase;
     color: var(--gold);
-    margin-bottom: 1.75rem;
+    margin-bottom: 1.5rem;
     display: block;
   }
 
-  .content h2 {
+  .volumes-header h2 {
     font-family: 'Cormorant Garamond', serif;
     font-weight: 300;
     font-size: clamp(2rem, 4vw, 3rem);
-    color: var(--violet);
+    color: var(--ivory);
+    line-height: 1.2;
+  }
+
+  .volumes-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 2px;
+    max-width: 1100px;
+    margin: 0 auto;
+  }
+
+  .vol-card {
+    position: relative;
+    padding: 3.5rem 3rem;
+    background: #120E22;
+    overflow: hidden;
+    text-decoration: none;
+    display: block;
+    opacity: 0;
+    transform: translateY(30px);
+    transition: opacity 0.7s ease, transform 0.7s ease, background 0.3s ease;
+  }
+
+  .vol-card.visible { opacity: 1; transform: translateY(0); }
+  .vol-card:nth-child(2) { transition-delay: 0.1s; }
+  .vol-card:nth-child(3) { transition-delay: 0.2s; }
+  .vol-card:nth-child(4) { transition-delay: 0.3s; }
+
+  .vol-card:hover { background: #1C1630; }
+
+  .vol-card::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0;
+    width: 3px;
+    height: 100%;
+    background: var(--gold);
+    opacity: 0;
+    transition: opacity 0.3s ease;
+  }
+
+  .vol-card:hover::before { opacity: 1; }
+
+  .vol-corner {
+    position: absolute;
+    bottom: 0; right: 0;
+    width: 60px; height: 60px;
+    border-top: 1px solid rgba(201,168,76,0.12);
+    border-left: 1px solid rgba(201,168,76,0.12);
+    transition: border-color 0.3s ease;
+  }
+
+  .vol-card:hover .vol-corner {
+    border-color: rgba(201,168,76,0.3);
+  }
+
+  .vol-roman {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 0.75rem;
+    font-weight: 400;
+    letter-spacing: 0.25em;
+    text-transform: uppercase;
+    color: var(--gold);
+    margin-bottom: 1.25rem;
+    display: block;
+  }
+
+  .vol-title {
+    font-family: 'Cormorant Garamond', serif;
+    font-weight: 300;
+    font-size: clamp(1.5rem, 2.5vw, 2rem);
+    color: var(--ivory);
     line-height: 1.25;
+    margin-bottom: 1rem;
+  }
+
+  .vol-subtitle {
+    font-family: 'Cormorant Garamond', serif;
+    font-style: italic;
+    font-size: 1rem;
+    color: var(--muted);
+    line-height: 1.6;
     margin-bottom: 2rem;
   }
 
-  .content h2 em { font-style: italic; color: var(--gold); }
-
-  .content p {
-    font-family: 'Cormorant Garamond', serif;
-    font-size: 1.2rem;
-    font-weight: 300;
-    line-height: 1.9;
-    color: #3A2A4A;
-    margin-bottom: 1.5rem;
-  }
-
-  /* ── DARK BAND ── */
-  .dark-band {
-    background: var(--deep);
-    padding: 6rem 2rem;
-    text-align: center;
-  }
-
-  .dark-band .section-eyebrow { color: var(--gold); margin-bottom: 1.5rem; display: block; }
-
-  .dark-band blockquote {
-    font-family: 'Cormorant Garamond', serif;
-    font-style: italic;
-    font-weight: 300;
-    font-size: clamp(1.5rem, 3.5vw, 2.2rem);
-    color: var(--ivory);
-    max-width: 680px;
-    margin: 0 auto;
-    line-height: 1.65;
-  }
-
-  .dark-band cite {
-    display: block;
-    margin-top: 2rem;
-    font-family: 'Jost', sans-serif;
-    font-style: normal;
-    font-size: 0.7rem;
+  .vol-link {
+    font-size: 0.65rem;
     letter-spacing: 0.3em;
     text-transform: uppercase;
-    color: var(--muted);
+    color: var(--gold);
+    opacity: 0.7;
+    transition: opacity 0.2s ease;
+    display: flex;
+    align-items: center;
+    gap: 0.6rem;
+  }
+
+  .vol-link::after {
+    content: '→';
+    transition: transform 0.2s ease;
+  }
+
+  .vol-card:hover .vol-link { opacity: 1; }
+  .vol-card:hover .vol-link::after { transform: translateX(4px); }
+
+  /* ── ABOUT ── */
+  .about {
+    padding: 7rem 2rem;
+    text-align: center;
+    background: var(--night);
+    position: relative;
+    overflow: hidden;
+  }
+
+  .about::before {
+    content: '';
+    position: absolute;
+    top: 50%; left: 50%;
+    transform: translate(-50%, -50%);
+    width: 500px; height: 500px;
+    border-radius: 50%;
+    background: radial-gradient(circle, #2A1F4530 0%, transparent 70%);
+  }
+
+  .about-inner {
+    position: relative;
+    max-width: 640px;
+    margin: 0 auto;
+  }
+
+  .about-inner h2 {
+    font-family: 'Cormorant Garamond', serif;
+    font-weight: 300;
+    font-size: clamp(1.8rem, 3.5vw, 2.5rem);
+    color: var(--ivory);
+    line-height: 1.3;
+    margin-bottom: 2rem;
+  }
+
+  .about-inner h2 em { font-style: italic; color: var(--gold); }
+
+  .about-inner p {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.15rem;
+    font-weight: 300;
+    line-height: 1.9;
+    color: #9A8AAA;
+    margin-bottom: 1.5rem;
   }
 
   /* ── FOOTER ── */
   footer {
-    background: var(--night);
+    background: #080610;
     padding: 2.5rem 2rem;
     text-align: center;
     font-size: 0.65rem;
     letter-spacing: 0.25em;
     text-transform: uppercase;
-    color: #3A3050;
+    color: #2A2040;
   }
 
   /* ── ANIMATIONS ── */
@@ -235,13 +355,19 @@
   }
 
   @keyframes twinkle {
-    0%, 100% { opacity: 0.2; }
-    50%       { opacity: 0.8; }
+    0%, 100% { opacity: 0.15; }
+    50%       { opacity: 0.7; }
+  }
+
+  @keyframes scrollPulse {
+    0%, 100% { opacity: 0.4; }
+    50%       { opacity: 1; }
   }
 
   /* ── RESPONSIVE ── */
-  @media (max-width: 600px) {
-    .content { padding: 4rem 1.5rem; }
+  @media (max-width: 720px) {
+    .volumes-grid { grid-template-columns: 1fr; }
+    .vol-card { padding: 2.5rem 2rem; }
   }
 </style>
 </head>
@@ -252,62 +378,114 @@
   <div class="hero-bg"></div>
   <div class="star-field" id="stars"></div>
 
-  <p class="hero-eyebrow">Un livre</p>
-  <h1 class="hero-title">
-    <span>La</span>
-    Mystique Divine
-  </h1>
+  <p class="hero-eyebrow">J. Ribet &nbsp;·&nbsp; A Complete Work in Four Volumes</p>
+  <h1 class="hero-title">Divine Mysticism</h1>
+  <p class="hero-author">La Mystique Divine</p>
   <div class="hero-divider"><div class="divider-diamond"></div></div>
   <p class="hero-sub">
-    Un voyage au cœur du mystère de Dieu —<br>
-    la contemplation, la prière, et l'union divine.
+    A systematic treatise on the heights of the interior life —
+    contemplation, mystical phenomena, diabolical counterfeits,
+    and the human analogies of divine union.
   </p>
+  <div class="scroll-hint">Volumes</div>
 </section>
 
-<!-- ══ CONTENT ══ -->
-<div class="content">
-  <span class="section-eyebrow">Le Livre</span>
-  <h2>Une invitation à <em>l'union divine</em></h2>
-  <p>
-    Placez ici le contenu de votre livre. Ce texte est un exemple — remplacez-le
-    par vos propres mots, chapitres, et réflexions.
-  </p>
-  <p>
-    La mystique divine est ce mouvement intérieur de l'âme vers Dieu —
-    silencieux, profond, et ineffable. Ce livre cherche à en tracer les contours
-    avec humilité et émerveillement.
-  </p>
-</div>
+<!-- ══ VOLUMES ══ -->
+<section class="volumes-section">
+  <div class="volumes-header">
+    <span class="section-eyebrow">The Complete Work</span>
+    <h2>Four Volumes</h2>
+  </div>
 
-<!-- ══ DARK BAND ══ -->
-<div class="dark-band">
-  <span class="section-eyebrow">Extrait</span>
-  <blockquote>
-    « L'âme qui se tait devant Dieu entend ce que les mots ne peuvent dire. »
-  </blockquote>
-  <cite>— La Mystique Divine</cite>
-</div>
+  <div class="volumes-grid">
+
+    <a class="vol-card reveal" href="Ribet_Divine_Mysticism_Vol1_EN.html">
+      <span class="vol-roman">Volume I</span>
+      <h3 class="vol-title">Contemplation</h3>
+      <p class="vol-subtitle">The nature, degrees, and fruits of mystical prayer — the soul's ascent toward union with God.</p>
+      <span class="vol-link">Read Volume I</span>
+      <div class="vol-corner"></div>
+    </a>
+
+    <a class="vol-card reveal" href="Ribet_Divine_Mysticism_Vol2_EN.html">
+      <span class="vol-roman">Volume II</span>
+      <h3 class="vol-title">The Mystical Phenomena Distinct from Contemplation</h3>
+      <p class="vol-subtitle">Visions, locutions, revelations, and the extraordinary graces that accompany the mystical life.</p>
+      <span class="vol-link">Read Volume II</span>
+      <div class="vol-corner"></div>
+    </a>
+
+    <a class="vol-card reveal" href="Ribet_Divine_Mysticism_Vol3_EN.html">
+      <span class="vol-roman">Volume III</span>
+      <h3 class="vol-title">The Diabolical Counterfeits</h3>
+      <p class="vol-subtitle">Discernment of spirits — the marks by which divine mysticism is distinguished from its counterfeits.</p>
+      <span class="vol-link">Read Volume III</span>
+      <div class="vol-corner"></div>
+    </a>
+
+    <a class="vol-card reveal" href="Ribet_Divine_Mysticism_Vol4_EN.html">
+      <span class="vol-roman">Volume IV</span>
+      <h3 class="vol-title">The Human Analogies</h3>
+      <p class="vol-subtitle">The natural counterparts of mystical experience — sleep, dreams, and the phenomena of the body and soul.</p>
+      <span class="vol-link">Read Volume IV</span>
+      <div class="vol-corner"></div>
+    </a>
+
+  </div>
+</section>
+
+<!-- ══ ABOUT ══ -->
+<section class="about">
+  <div class="about-inner reveal">
+    <span class="section-eyebrow">About the Work</span>
+    <h2>A Masterwork of <em>Catholic Mystical Theology</em></h2>
+    <p>
+      Father J. Ribet's <em>La Mystique Divine</em> stands as one of the most thorough
+      systematic treatments of Catholic mystical theology ever written. Drawing on
+      Scripture, the Fathers, and the great mystics of the Church, Ribet maps the
+      interior life with rare precision and depth.
+    </p>
+    <p>
+      This edition presents the complete four-volume work in English, making
+      Ribet's scholarship accessible to the contemporary reader seeking to
+      understand the heights of contemplative life.
+    </p>
+  </div>
+</section>
 
 <footer>
-  La Mystique Divine
+  Divine Mysticism &nbsp;·&nbsp; J. Ribet &nbsp;·&nbsp; La Mystique Divine
 </footer>
 
 <script>
-// Generate star field
+// Star field
 const sf = document.getElementById('stars');
-for (let i = 0; i < 120; i++) {
+for (let i = 0; i < 140; i++) {
   const s = document.createElement('div');
   s.className = 'star';
+  const size = Math.random() < 0.8 ? 1 : 2;
   s.style.cssText = `
     left: ${Math.random() * 100}%;
     top: ${Math.random() * 100}%;
-    width: ${Math.random() < 0.8 ? 1 : 2}px;
-    height: ${Math.random() < 0.8 ? 1 : 2}px;
-    opacity: ${Math.random() * 0.6 + 0.1};
+    width: ${size}px;
+    height: ${size}px;
+    opacity: ${Math.random() * 0.5 + 0.1};
     animation: twinkle ${2 + Math.random() * 4}s ease ${Math.random() * 4}s infinite;
   `;
   sf.appendChild(s);
 }
+
+// Scroll reveal
+const observer = new IntersectionObserver((entries) => {
+  entries.forEach((entry, i) => {
+    if (entry.isIntersecting) {
+      entry.target.classList.add('visible');
+      observer.unobserve(entry.target);
+    }
+  });
+}, { threshold: 0.12 });
+
+document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
 </script>
 </body>
 </html>
