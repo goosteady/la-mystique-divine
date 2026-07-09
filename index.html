@@ -1,491 +1,83 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<!DOCTYPE html><html lang="en"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
 <title>Divine Mysticism — J. Ribet</title>
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400;1,600&family=Jost:wght@300;400;500&display=swap" rel="stylesheet">
 <style>
-  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+@import url('https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400;0,500;0,600;1,400&display=swap');
+:root{--ink:#1d1a16;--paper:#f7f5ef;--rubric:#7a1f2b;--rule:#c9c2b4;--faint:#6b6459;}
+*{box-sizing:border-box}
+body{margin:0;background:var(--paper);color:var(--ink);
+ font:400 1.15rem/1.65 'EB Garamond',Georgia,serif;
+ text-rendering:optimizeLegibility;-webkit-font-smoothing:antialiased}
+.page{max-width:42rem;margin:0 auto;padding:2rem 1.25rem 6rem}
+/* rubricated title page */
+.titlepage{text-align:center;padding:4rem 0 3rem;border-bottom:1px solid var(--rule)}
+.titlepage .over{letter-spacing:.35em;font-size:.85rem;color:var(--faint);text-transform:uppercase}
+.titlepage h1{font-size:2.6rem;font-weight:500;letter-spacing:.12em;margin:.6rem 0 .2rem;
+ color:var(--rubric);text-transform:uppercase;line-height:1.2}
+.titlepage .sub{font-size:1.05rem;letter-spacing:.18em;text-transform:uppercase;margin:.4rem 0}
+.titlepage .author{margin-top:2.2rem;font-variant:small-caps;letter-spacing:.12em;font-size:1.1rem}
+.titlepage .imprint{margin-top:2.6rem;font-size:.9rem;color:var(--faint);letter-spacing:.08em}
+.fleuron{color:var(--rubric);font-size:1.3rem;margin:1.4rem 0}
+/* volumes as contents */
+.volumes h2{font-variant:small-caps;font-weight:500;letter-spacing:.2em;text-align:center;margin:3rem 0 2rem}
+.vol-list{list-style:none;padding:0;margin:0}
+.vol-list li{margin:0 0 1.6rem}
+.vol-list a{display:block;color:inherit;text-decoration:none;border:1px solid var(--rule);
+ padding:1.3rem 1.6rem;transition:border-color .2s ease, background .2s ease}
+.vol-list a:hover{border-color:var(--rubric);background:#fdfcf8}
+.vol-list .n{display:block;font-variant:small-caps;letter-spacing:.22em;font-size:.95rem;
+ color:var(--rubric);margin-bottom:.3rem}
+.vol-list .t{display:block;font-size:1.35rem;font-weight:500;font-variant:small-caps;
+ letter-spacing:.04em;line-height:1.3}
+.vol-list .d{display:block;font-style:italic;font-size:1rem;color:var(--faint);margin-top:.35rem}
+/* about */
+.note{border:1px solid var(--rule);padding:1.1rem 1.4rem;margin:3rem 0 0;font-size:.98rem;color:#3d382f}
+.note b{font-variant:small-caps;letter-spacing:.06em}
+footer{text-align:center;margin-top:4rem;padding-top:2rem;border-top:1px solid var(--rule);
+ font-size:.85rem;color:var(--faint);letter-spacing:.12em;text-transform:uppercase}
+@media(max-width:480px){body{font-size:1.05rem}.titlepage h1{font-size:1.9rem}}
+</style></head><body><div class="page">
 
-  :root {
-    --night:      #0D0A14;
-    --deep:       #16102A;
-    --violet:     #2A1F45;
-    --gold:       #C9A84C;
-    --gold2:      #E8C96A;
-    --ivory:      #F8F4EC;
-    --parchment:  #EDE4D0;
-    --muted:      #7A6E8A;
-    --text:       #2A2030;
-  }
+<div class="titlepage">
+<div class="over">M. J. Ribet · Honorary Canon</div>
+<h1>Divine Mysticism</h1>
+<div class="sub">Distinguished from Diabolical Counterfeits<br>and Human Analogies</div>
+<div class="fleuron">❦</div>
+<div class="author">Translated from the French</div>
+<div class="imprint">Paris · Librairie Ch. Poussielgue · 1895<br>English rendering 2026 · The original is in the public domain</div>
+</div>
 
-  html { scroll-behavior: smooth; }
+<nav class="volumes">
+<h2>The Four Volumes</h2>
+<ol class="vol-list">
+<li><a href="Ribet_Divine_Mysticism_Vol1_EN.html">
+<span class="n">Volume I</span>
+<span class="t">Contemplation</span>
+<span class="d">The nature, degrees, causes, and effects of mystical prayer — the soul's ascent toward union with God.</span>
+</a></li>
+<li><a href="Ribet_Divine_Mysticism_Vol2_EN.html">
+<span class="n">Volume II</span>
+<span class="t">The Mystical Phenomena Distinct from Contemplation</span>
+<span class="d">Visions, locutions, revelations, and the extraordinary graces that accompany the mystical life.</span>
+</a></li>
+<li><a href="Ribet_Divine_Mysticism_Vol3_EN.html">
+<span class="n">Volume III</span>
+<span class="t">The Diabolical Counterfeits</span>
+<span class="d">Discernment of spirits — the marks by which divine mysticism is distinguished from its counterfeits.</span>
+</a></li>
+<li><a href="Ribet_Divine_Mysticism_Vol4_EN.html">
+<span class="n">Volume IV</span>
+<span class="t">The Human Analogies</span>
+<span class="d">The natural counterparts of mystical experience — the phenomena of body and soul that resemble, without attaining, the divine.</span>
+</a></li>
+</ol>
+</nav>
 
-  body {
-    font-family: 'Jost', sans-serif;
-    background: var(--night);
-    color: var(--ivory);
-    overflow-x: hidden;
-  }
+<div class="note"><b>About this edition.</b> Canon J. Ribet's <i>La Mystique Divine</i>
+is one of the most thorough systematic treatments of Catholic mystical theology ever
+written. This edition presents a complete machine-assisted draft translation of the
+1895 Poussielgue edition in four volumes — a working draft, not a critical edition.</div>
 
-  /* ── HERO ── */
-  .hero {
-    position: relative;
-    min-height: 100vh;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    text-align: center;
-    overflow: hidden;
-    padding: 5rem 2rem 4rem;
-  }
+<footer>Divine Mysticism · La Mystique Divine · J. Ribet</footer>
 
-  .hero-bg {
-    position: absolute; inset: 0;
-    background:
-      radial-gradient(ellipse 70% 60% at 50% 30%, #2A1F4540 0%, transparent 60%),
-      radial-gradient(ellipse 50% 80% at 20% 80%, #C9A84C12 0%, transparent 55%),
-      radial-gradient(ellipse 60% 50% at 80% 70%, #3D1F6018 0%, transparent 55%),
-      linear-gradient(180deg, #0D0A14 0%, #16102A 50%, #0D0A14 100%);
-  }
-
-  .star-field { position: absolute; inset: 0; overflow: hidden; }
-
-  .star {
-    position: absolute;
-    background: #fff;
-    border-radius: 50%;
-  }
-
-  .hero-eyebrow {
-    position: relative;
-    font-weight: 300;
-    font-size: 0.7rem;
-    letter-spacing: 0.45em;
-    text-transform: uppercase;
-    color: var(--gold);
-    margin-bottom: 2rem;
-    opacity: 0;
-    animation: fadeUp 0.8s ease 0.3s forwards;
-  }
-
-  .hero-title {
-    position: relative;
-    font-family: 'Cormorant Garamond', serif;
-    font-weight: 300;
-    font-style: italic;
-    font-size: clamp(3.5rem, 9vw, 7.5rem);
-    line-height: 1.0;
-    color: var(--ivory);
-    opacity: 0;
-    animation: fadeUp 1s ease 0.6s forwards;
-  }
-
-  .hero-author {
-    position: relative;
-    margin-top: 1.5rem;
-    font-weight: 300;
-    font-size: 0.75rem;
-    letter-spacing: 0.35em;
-    text-transform: uppercase;
-    color: var(--muted);
-    opacity: 0;
-    animation: fadeUp 1s ease 0.9s forwards;
-  }
-
-  .hero-divider {
-    position: relative;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 1rem;
-    margin: 2.5rem auto;
-    opacity: 0;
-    animation: fadeUp 1s ease 1.1s forwards;
-  }
-
-  .hero-divider::before,
-  .hero-divider::after {
-    content: '';
-    width: 70px;
-    height: 1px;
-  }
-  .hero-divider::before { background: linear-gradient(to right, transparent, var(--gold)); }
-  .hero-divider::after  { background: linear-gradient(to left,  transparent, var(--gold)); }
-
-  .divider-diamond {
-    width: 6px; height: 6px;
-    background: var(--gold);
-    transform: rotate(45deg);
-    flex-shrink: 0;
-  }
-
-  .hero-sub {
-    position: relative;
-    font-family: 'Cormorant Garamond', serif;
-    font-style: italic;
-    font-weight: 300;
-    font-size: clamp(1.05rem, 2.2vw, 1.35rem);
-    color: #9A8AAA;
-    max-width: 560px;
-    line-height: 1.8;
-    opacity: 0;
-    animation: fadeUp 1s ease 1.3s forwards;
-  }
-
-  .scroll-hint {
-    position: absolute;
-    bottom: 2.5rem;
-    left: 50%;
-    transform: translateX(-50%);
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 0.5rem;
-    color: #40304A;
-    font-size: 0.6rem;
-    letter-spacing: 0.3em;
-    text-transform: uppercase;
-    opacity: 0;
-    animation: fadeUp 1s ease 2s forwards;
-  }
-
-  .scroll-hint::after {
-    content: '';
-    display: block;
-    width: 1px;
-    height: 40px;
-    background: linear-gradient(to bottom, #40304A, transparent);
-    animation: scrollPulse 2s ease infinite;
-  }
-
-  /* ── VOLUMES ── */
-  .volumes-section {
-    background: var(--deep);
-    padding: 6rem 2rem;
-  }
-
-  .volumes-header {
-    text-align: center;
-    margin-bottom: 5rem;
-  }
-
-  .section-eyebrow {
-    font-size: 0.65rem;
-    letter-spacing: 0.38em;
-    text-transform: uppercase;
-    color: var(--gold);
-    margin-bottom: 1.5rem;
-    display: block;
-  }
-
-  .volumes-header h2 {
-    font-family: 'Cormorant Garamond', serif;
-    font-weight: 300;
-    font-size: clamp(2rem, 4vw, 3rem);
-    color: var(--ivory);
-    line-height: 1.2;
-  }
-
-  .volumes-grid {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    gap: 2px;
-    max-width: 1100px;
-    margin: 0 auto;
-  }
-
-  .vol-card {
-    position: relative;
-    padding: 3.5rem 3rem;
-    background: #120E22;
-    overflow: hidden;
-    text-decoration: none;
-    display: block;
-    opacity: 0;
-    transform: translateY(30px);
-    transition: opacity 0.7s ease, transform 0.7s ease, background 0.3s ease;
-  }
-
-  .vol-card.visible { opacity: 1; transform: translateY(0); }
-  .vol-card:nth-child(2) { transition-delay: 0.1s; }
-  .vol-card:nth-child(3) { transition-delay: 0.2s; }
-  .vol-card:nth-child(4) { transition-delay: 0.3s; }
-
-  .vol-card:hover { background: #1C1630; }
-
-  .vol-card::before {
-    content: '';
-    position: absolute;
-    top: 0; left: 0;
-    width: 3px;
-    height: 100%;
-    background: var(--gold);
-    opacity: 0;
-    transition: opacity 0.3s ease;
-  }
-
-  .vol-card:hover::before { opacity: 1; }
-
-  .vol-corner {
-    position: absolute;
-    bottom: 0; right: 0;
-    width: 60px; height: 60px;
-    border-top: 1px solid rgba(201,168,76,0.12);
-    border-left: 1px solid rgba(201,168,76,0.12);
-    transition: border-color 0.3s ease;
-  }
-
-  .vol-card:hover .vol-corner {
-    border-color: rgba(201,168,76,0.3);
-  }
-
-  .vol-roman {
-    font-family: 'Cormorant Garamond', serif;
-    font-size: 0.75rem;
-    font-weight: 400;
-    letter-spacing: 0.25em;
-    text-transform: uppercase;
-    color: var(--gold);
-    margin-bottom: 1.25rem;
-    display: block;
-  }
-
-  .vol-title {
-    font-family: 'Cormorant Garamond', serif;
-    font-weight: 300;
-    font-size: clamp(1.5rem, 2.5vw, 2rem);
-    color: var(--ivory);
-    line-height: 1.25;
-    margin-bottom: 1rem;
-  }
-
-  .vol-subtitle {
-    font-family: 'Cormorant Garamond', serif;
-    font-style: italic;
-    font-size: 1rem;
-    color: var(--muted);
-    line-height: 1.6;
-    margin-bottom: 2rem;
-  }
-
-  .vol-link {
-    font-size: 0.65rem;
-    letter-spacing: 0.3em;
-    text-transform: uppercase;
-    color: var(--gold);
-    opacity: 0.7;
-    transition: opacity 0.2s ease;
-    display: flex;
-    align-items: center;
-    gap: 0.6rem;
-  }
-
-  .vol-link::after {
-    content: '→';
-    transition: transform 0.2s ease;
-  }
-
-  .vol-card:hover .vol-link { opacity: 1; }
-  .vol-card:hover .vol-link::after { transform: translateX(4px); }
-
-  /* ── ABOUT ── */
-  .about {
-    padding: 7rem 2rem;
-    text-align: center;
-    background: var(--night);
-    position: relative;
-    overflow: hidden;
-  }
-
-  .about::before {
-    content: '';
-    position: absolute;
-    top: 50%; left: 50%;
-    transform: translate(-50%, -50%);
-    width: 500px; height: 500px;
-    border-radius: 50%;
-    background: radial-gradient(circle, #2A1F4530 0%, transparent 70%);
-  }
-
-  .about-inner {
-    position: relative;
-    max-width: 640px;
-    margin: 0 auto;
-  }
-
-  .about-inner h2 {
-    font-family: 'Cormorant Garamond', serif;
-    font-weight: 300;
-    font-size: clamp(1.8rem, 3.5vw, 2.5rem);
-    color: var(--ivory);
-    line-height: 1.3;
-    margin-bottom: 2rem;
-  }
-
-  .about-inner h2 em { font-style: italic; color: var(--gold); }
-
-  .about-inner p {
-    font-family: 'Cormorant Garamond', serif;
-    font-size: 1.15rem;
-    font-weight: 300;
-    line-height: 1.9;
-    color: #9A8AAA;
-    margin-bottom: 1.5rem;
-  }
-
-  /* ── FOOTER ── */
-  footer {
-    background: #080610;
-    padding: 2.5rem 2rem;
-    text-align: center;
-    font-size: 0.65rem;
-    letter-spacing: 0.25em;
-    text-transform: uppercase;
-    color: #2A2040;
-  }
-
-  /* ── ANIMATIONS ── */
-  @keyframes fadeUp {
-    from { opacity: 0; transform: translateY(20px); }
-    to   { opacity: 1; transform: translateY(0); }
-  }
-
-  @keyframes twinkle {
-    0%, 100% { opacity: 0.15; }
-    50%       { opacity: 0.7; }
-  }
-
-  @keyframes scrollPulse {
-    0%, 100% { opacity: 0.4; }
-    50%       { opacity: 1; }
-  }
-
-  /* ── RESPONSIVE ── */
-  @media (max-width: 720px) {
-    .volumes-grid { grid-template-columns: 1fr; }
-    .vol-card { padding: 2.5rem 2rem; }
-  }
-</style>
-</head>
-<body>
-
-<!-- ══ HERO ══ -->
-<section class="hero">
-  <div class="hero-bg"></div>
-  <div class="star-field" id="stars"></div>
-
-  <p class="hero-eyebrow">J. Ribet &nbsp;·&nbsp; A Complete Work in Four Volumes</p>
-  <h1 class="hero-title">Divine Mysticism</h1>
-  <p class="hero-author">La Mystique Divine</p>
-  <div class="hero-divider"><div class="divider-diamond"></div></div>
-  <p class="hero-sub">
-    A systematic treatise on the heights of the interior life —
-    contemplation, mystical phenomena, diabolical counterfeits,
-    and the human analogies of divine union.
-  </p>
-  <div class="scroll-hint">Volumes</div>
-</section>
-
-<!-- ══ VOLUMES ══ -->
-<section class="volumes-section">
-  <div class="volumes-header">
-    <span class="section-eyebrow">The Complete Work</span>
-    <h2>Four Volumes</h2>
-  </div>
-
-  <div class="volumes-grid">
-
-    <a class="vol-card reveal" href="Ribet_Divine_Mysticism_Vol1_EN.html">
-      <span class="vol-roman">Volume I</span>
-      <h3 class="vol-title">Contemplation</h3>
-      <p class="vol-subtitle">The nature, degrees, and fruits of mystical prayer — the soul's ascent toward union with God.</p>
-      <span class="vol-link">Read Volume I</span>
-      <div class="vol-corner"></div>
-    </a>
-
-    <a class="vol-card reveal" href="Ribet_Divine_Mysticism_Vol2_EN.html">
-      <span class="vol-roman">Volume II</span>
-      <h3 class="vol-title">The Mystical Phenomena Distinct from Contemplation</h3>
-      <p class="vol-subtitle">Visions, locutions, revelations, and the extraordinary graces that accompany the mystical life.</p>
-      <span class="vol-link">Read Volume II</span>
-      <div class="vol-corner"></div>
-    </a>
-
-    <a class="vol-card reveal" href="Ribet_Divine_Mysticism_Vol3_EN.html">
-      <span class="vol-roman">Volume III</span>
-      <h3 class="vol-title">The Diabolical Counterfeits</h3>
-      <p class="vol-subtitle">Discernment of spirits — the marks by which divine mysticism is distinguished from its counterfeits.</p>
-      <span class="vol-link">Read Volume III</span>
-      <div class="vol-corner"></div>
-    </a>
-
-    <a class="vol-card reveal" href="Ribet_Divine_Mysticism_Vol4_EN.html">
-      <span class="vol-roman">Volume IV</span>
-      <h3 class="vol-title">The Human Analogies</h3>
-      <p class="vol-subtitle">The natural counterparts of mystical experience — sleep, dreams, and the phenomena of the body and soul.</p>
-      <span class="vol-link">Read Volume IV</span>
-      <div class="vol-corner"></div>
-    </a>
-
-  </div>
-</section>
-
-<!-- ══ ABOUT ══ -->
-<section class="about">
-  <div class="about-inner reveal">
-    <span class="section-eyebrow">About the Work</span>
-    <h2>A Masterwork of <em>Catholic Mystical Theology</em></h2>
-    <p>
-      Father J. Ribet's <em>La Mystique Divine</em> stands as one of the most thorough
-      systematic treatments of Catholic mystical theology ever written. Drawing on
-      Scripture, the Fathers, and the great mystics of the Church, Ribet maps the
-      interior life with rare precision and depth.
-    </p>
-    <p>
-      This edition presents the complete four-volume work in English, making
-      Ribet's scholarship accessible to the contemporary reader seeking to
-      understand the heights of contemplative life.
-    </p>
-  </div>
-</section>
-
-<footer>
-  Divine Mysticism &nbsp;·&nbsp; J. Ribet &nbsp;·&nbsp; La Mystique Divine
-</footer>
-
-<script>
-// Star field
-const sf = document.getElementById('stars');
-for (let i = 0; i < 140; i++) {
-  const s = document.createElement('div');
-  s.className = 'star';
-  const size = Math.random() < 0.8 ? 1 : 2;
-  s.style.cssText = `
-    left: ${Math.random() * 100}%;
-    top: ${Math.random() * 100}%;
-    width: ${size}px;
-    height: ${size}px;
-    opacity: ${Math.random() * 0.5 + 0.1};
-    animation: twinkle ${2 + Math.random() * 4}s ease ${Math.random() * 4}s infinite;
-  `;
-  sf.appendChild(s);
-}
-
-// Scroll reveal
-const observer = new IntersectionObserver((entries) => {
-  entries.forEach((entry, i) => {
-    if (entry.isIntersecting) {
-      entry.target.classList.add('visible');
-      observer.unobserve(entry.target);
-    }
-  });
-}, { threshold: 0.12 });
-
-document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
-</script>
-</body>
-</html>
+</div></body></html>
