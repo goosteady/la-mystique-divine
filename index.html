@@ -1,83 +1,110 @@
-<!DOCTYPE html><html lang="en"><head><meta charset="utf-8">
-<meta name="viewport" content="width=device-width,initial-scale=1">
-<title>Divine Mysticism — J. Ribet</title>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Divine Mysticism — J. Ribet · Netroot.io</title>
+<link rel="stylesheet" href="styles.css">
 <style>
-@import url('https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400;0,500;0,600;1,400&display=swap');
-:root{--ink:#1d1a16;--paper:#f7f5ef;--rubric:#7a1f2b;--rule:#c9c2b4;--faint:#6b6459;}
-*{box-sizing:border-box}
-body{margin:0;background:var(--paper);color:var(--ink);
- font:400 1.15rem/1.65 'EB Garamond',Georgia,serif;
- text-rendering:optimizeLegibility;-webkit-font-smoothing:antialiased}
-.page{max-width:42rem;margin:0 auto;padding:2rem 1.25rem 6rem}
-/* rubricated title page */
-.titlepage{text-align:center;padding:4rem 0 3rem;border-bottom:1px solid var(--rule)}
-.titlepage .over{letter-spacing:.35em;font-size:.85rem;color:var(--faint);text-transform:uppercase}
-.titlepage h1{font-size:2.6rem;font-weight:500;letter-spacing:.12em;margin:.6rem 0 .2rem;
- color:var(--rubric);text-transform:uppercase;line-height:1.2}
-.titlepage .sub{font-size:1.05rem;letter-spacing:.18em;text-transform:uppercase;margin:.4rem 0}
-.titlepage .author{margin-top:2.2rem;font-variant:small-caps;letter-spacing:.12em;font-size:1.1rem}
-.titlepage .imprint{margin-top:2.6rem;font-size:.9rem;color:var(--faint);letter-spacing:.08em}
-.fleuron{color:var(--rubric);font-size:1.3rem;margin:1.4rem 0}
-/* volumes as contents */
-.volumes h2{font-variant:small-caps;font-weight:500;letter-spacing:.2em;text-align:center;margin:3rem 0 2rem}
-.vol-list{list-style:none;padding:0;margin:0}
-.vol-list li{margin:0 0 1.6rem}
-.vol-list a{display:block;color:inherit;text-decoration:none;border:1px solid var(--rule);
- padding:1.3rem 1.6rem;transition:border-color .2s ease, background .2s ease}
-.vol-list a:hover{border-color:var(--rubric);background:#fdfcf8}
-.vol-list .n{display:block;font-variant:small-caps;letter-spacing:.22em;font-size:.95rem;
- color:var(--rubric);margin-bottom:.3rem}
-.vol-list .t{display:block;font-size:1.35rem;font-weight:500;font-variant:small-caps;
- letter-spacing:.04em;line-height:1.3}
-.vol-list .d{display:block;font-style:italic;font-size:1rem;color:var(--faint);margin-top:.35rem}
-/* about */
-.note{border:1px solid var(--rule);padding:1.1rem 1.4rem;margin:3rem 0 0;font-size:.98rem;color:#3d382f}
-.note b{font-variant:small-caps;letter-spacing:.06em}
-footer{text-align:center;margin-top:4rem;padding-top:2rem;border-top:1px solid var(--rule);
- font-size:.85rem;color:var(--faint);letter-spacing:.12em;text-transform:uppercase}
-@media(max-width:480px){body{font-size:1.05rem}.titlepage h1{font-size:1.9rem}}
-</style></head><body><div class="page">
+  body { margin:0; text-wrap:pretty; background:var(--color-bg); }
+  .site-nav { display:flex; align-items:center; gap:28px; padding:18px clamp(20px,5vw,48px); border-bottom:1px solid var(--color-divider); background:var(--color-bg); }
+  .site-nav .brand { display:flex; align-items:center; gap:10px; color:var(--color-text); text-decoration:none; margin-right:auto; }
+  .site-nav .brand span { font-family:var(--font-heading); font-weight:600; font-size:19px; letter-spacing:-0.01em; }
+  .site-nav .brand .tld { color:var(--color-accent-700); }
+  .site-nav a.link { font-size:14px; color:var(--color-text); text-decoration:none; }
+  .site-nav a.link:hover, .site-nav a.link.current { color:var(--color-accent-700); }
+  .wrap { max-width:1200px; margin:0 auto; padding:0 clamp(20px,5vw,72px); }
+  .breadcrumb { font-size:12.5px; line-height:20px; color:color-mix(in srgb, var(--color-text) 60%, transparent); margin:28px 0 0; }
+  .breadcrumb a { color:var(--color-accent-700); text-decoration:none; }
+  .breadcrumb a:hover { color:var(--color-accent-900); text-decoration:underline; }
+  .kicker { display:block; font-size:13px; letter-spacing:0.08em; text-transform:uppercase; color:var(--color-accent-700); margin:0 0 14px; }
+  .header { padding:56px 0 32px; }
+  .header h1 { font-family:var(--font-heading); font-weight:400; font-size:clamp(38px,4.8vw,58px); line-height:1.1; letter-spacing:-0.01em; margin:0; max-width:20ch; }
+  .header .sub { font-size:16px; line-height:27px; max-width:60ch; margin:22px 0 0; color:color-mix(in srgb, var(--color-text) 78%, transparent); }
+  .header .imprint { font-size:14px; line-height:24px; margin:16px 0 0; color:color-mix(in srgb, var(--color-text) 60%, transparent); }
+  .volumes { display:grid; grid-template-columns:repeat(auto-fill, minmax(260px, 1fr)); gap:20px; padding:20px 0 8px; }
+  .vol { text-decoration:none; color:inherit; transition:border-color 0.2s ease; }
+  .vol:hover { border-color:var(--color-accent); }
+  .vol .card-title { font-size:20px; }
+  .vol .card-body { font-size:13.5px; line-height:1.5; }
+  .about { padding:40px 0 0; }
+  .about .note { border:1px solid var(--color-divider); border-radius:var(--radius-md); padding:20px 24px; max-width:62ch; font-size:15px; line-height:26px; color:color-mix(in srgb, var(--color-text) 82%, transparent); }
+  .about .note b { font-family:var(--font-heading); font-weight:600; }
+  .foot { padding:56px 0 40px; margin-top:40px; font-size:13px; line-height:22px; color:color-mix(in srgb, var(--color-text) 70%, transparent); display:flex; justify-content:space-between; flex-wrap:wrap; gap:12px; border-top:1px solid var(--color-divider); }
+  .foot a { color:inherit; text-decoration:none; }
+  .foot a:hover { color:var(--color-accent-700); }
+  .foot .links { display:flex; gap:18px; }
+</style>
+</head>
+<body>
+  <nav class="site-nav">
+    <a class="brand" href="/">
+      <svg viewBox="0 0 64 64" width="34" height="34" aria-hidden="true">
+        <circle cx="32" cy="32" r="30" fill="none" stroke="#1f3a63" stroke-width="2"></circle>
+        <circle cx="32" cy="32" r="24" fill="none" stroke="#b68235" stroke-width="1"></circle>
+        <line x1="32" y1="14" x2="32" y2="40" stroke="#1f3a63" stroke-width="2.5" stroke-linecap="round"></line>
+        <line x1="24" y1="21" x2="40" y2="21" stroke="#1f3a63" stroke-width="2.5" stroke-linecap="round"></line>
+        <path d="M 20 40 Q 32 52 44 40" fill="none" stroke="#b68235" stroke-width="2.5" stroke-linecap="round"></path>
+        <circle cx="32" cy="16" r="2.2" fill="#b68235"></circle>
+      </svg>
+      <span>Netroot<span class="tld">.io</span></span>
+    </a>
+    <a class="link current" href="/la-mystique-divine/">Divine Mysticism</a>
+    <a class="link" href="/humility/">The Practice of Humility</a>
+  </nav>
 
-<div class="titlepage">
-<div class="over">M. J. Ribet · Honorary Canon</div>
-<h1>Divine Mysticism</h1>
-<div class="sub">Distinguished from Diabolical Counterfeits<br>and Human Analogies</div>
-<div class="fleuron">❦</div>
-<div class="author">Translated from the French</div>
-<div class="imprint">Paris · Librairie Ch. Poussielgue · 1895<br>English rendering 2026 · The original is in the public domain</div>
-</div>
+  <div class="wrap">
+    <p class="breadcrumb">
+      <a href="/">Netroot.io</a> &nbsp;/&nbsp; Divine Mysticism
+    </p>
 
-<nav class="volumes">
-<h2>The Four Volumes</h2>
-<ol class="vol-list">
-<li><a href="Ribet_Divine_Mysticism_Vol1_EN.html">
-<span class="n">Volume I</span>
-<span class="t">Contemplation</span>
-<span class="d">The nature, degrees, causes, and effects of mystical prayer — the soul's ascent toward union with God.</span>
-</a></li>
-<li><a href="Ribet_Divine_Mysticism_Vol2_EN.html">
-<span class="n">Volume II</span>
-<span class="t">The Mystical Phenomena Distinct from Contemplation</span>
-<span class="d">Visions, locutions, revelations, and the extraordinary graces that accompany the mystical life.</span>
-</a></li>
-<li><a href="Ribet_Divine_Mysticism_Vol3_EN.html">
-<span class="n">Volume III</span>
-<span class="t">The Diabolical Counterfeits</span>
-<span class="d">Discernment of spirits — the marks by which divine mysticism is distinguished from its counterfeits.</span>
-</a></li>
-<li><a href="Ribet_Divine_Mysticism_Vol4_EN.html">
-<span class="n">Volume IV</span>
-<span class="t">The Human Analogies</span>
-<span class="d">The natural counterparts of mystical experience — the phenomena of body and soul that resemble, without attaining, the divine.</span>
-</a></li>
-</ol>
-</nav>
+    <header class="header">
+      <span class="kicker">M. J. Ribet &middot; Honorary Canon</span>
+      <h1>Divine Mysticism</h1>
+      <p class="sub">Distinguished from Diabolical Counterfeits and Human Analogies — one of the most thorough systematic treatments of Catholic mystical theology ever written, in four volumes.</p>
+      <p class="imprint">Translated from the French &middot; Paris &middot; Librairie Ch. Poussielgue, 1895. English rendering 2026 &middot; the original is in the public domain.</p>
+    </header>
 
-<div class="note"><b>About this edition.</b> Canon J. Ribet's <i>La Mystique Divine</i>
-is one of the most thorough systematic treatments of Catholic mystical theology ever
-written. This edition presents a complete machine-assisted draft translation of the
-1895 Poussielgue edition in four volumes — a working draft, not a critical edition.</div>
+    <section aria-label="The four volumes">
+      <div class="volumes">
+        <a class="card elev-sm vol" href="Ribet_Divine_Mysticism_Vol1_EN.html">
+          <span class="card-kicker">Volume I</span>
+          <span class="card-title">Contemplation</span>
+          <p class="card-body">The nature, degrees, causes, and effects of mystical prayer — the soul&rsquo;s ascent toward union with God.</p>
+          <span class="card-meta"><span class="tag tag-outline">1895</span></span>
+        </a>
+        <a class="card elev-sm vol" href="Ribet_Divine_Mysticism_Vol2_EN.html">
+          <span class="card-kicker">Volume II</span>
+          <span class="card-title">The Mystical Phenomena</span>
+          <p class="card-body">Visions, locutions, revelations, and the extraordinary graces that accompany the mystical life.</p>
+          <span class="card-meta"><span class="tag tag-outline">1895</span></span>
+        </a>
+        <a class="card elev-sm vol" href="Ribet_Divine_Mysticism_Vol3_EN.html">
+          <span class="card-kicker">Volume III</span>
+          <span class="card-title">The Diabolical Counterfeits</span>
+          <p class="card-body">Discernment of spirits — the marks by which divine mysticism is distinguished from its counterfeits.</p>
+          <span class="card-meta"><span class="tag tag-outline">1895</span></span>
+        </a>
+        <a class="card elev-sm vol" href="Ribet_Divine_Mysticism_Vol4_EN.html">
+          <span class="card-kicker">Volume IV</span>
+          <span class="card-title">The Human Analogies</span>
+          <p class="card-body">The natural counterparts of mystical experience — the phenomena of body and soul that resemble, without attaining, the divine.</p>
+          <span class="card-meta"><span class="tag tag-outline">1895</span></span>
+        </a>
+      </div>
+    </section>
 
-<footer>Divine Mysticism · La Mystique Divine · J. Ribet</footer>
+    <section class="about">
+      <div class="note"><b>About this edition.</b> Canon J. Ribet&rsquo;s <em>La Mystique Divine</em> is one of the most thorough systematic treatments of Catholic mystical theology ever written. This edition presents a complete machine-assisted draft translation of the 1895 Poussielgue edition in four volumes — a working draft, not a critical edition.</div>
+    </section>
 
-</div></body></html>
+    <footer class="foot">
+      <span>&copy; Netroot.io &mdash; texts and images are in the public domain; site design and typesetting are ours.</span>
+      <span class="links">
+        <a href="/">Home</a>
+        <a href="/humility/">Humility</a>
+      </span>
+    </footer>
+  </div>
+</body>
+</html>
