@@ -51,6 +51,9 @@
      text goes lighter still, to the normal cut (see the deck) */
   --font-body: "Lora", system-ui, sans-serif;
 
+  /* one standard page-title size, consistent across every page type */
+  --title: clamp(30px, 3.6vw, 44px);
+
   --space-1: 4.6px;
   --space-2: 9.2px;
   --space-3: 13.8px;
@@ -320,7 +323,7 @@ textarea.input { min-height: 90px; resize: vertical; }
 
 /* — landing hero + collections — */
 .hero { padding:76px 0 64px; }
-.hero h1 { font-family:var(--font-heading); font-weight:400; font-size:clamp(30px,3.6vw,44px);
+.hero h1 { font-family:var(--font-heading); font-weight:400; font-size:var(--title);
   line-height:1.12; letter-spacing:-0.01em; margin:0; }
 .hero h1 span { display:block; }
 .hero p { font-size:17px; line-height:28px; max-width:58ch; margin:28px 0 0;
@@ -377,53 +380,53 @@ textarea.input { min-height: 90px; resize: vertical; }
 /* ── Reader — long-form texts (Ribet, Denzinger, treatises). Narrow measure,
       Lora body, Cormorant display, deep-amber rubric. Scoped so it never
       collides with the landing hero/wrap. ── */
-.reading { max-width: 44rem; margin: 0 auto; padding: 0 clamp(20px,5vw,44px); }
-.reading main, .reading .prose { padding:40px 0 100px; font-family:var(--font-body);
+.longform { max-width: 44rem; margin: 0 auto; padding: 0 clamp(20px,5vw,44px); }
+.longform main, .longform .prose { padding:40px 0 100px; font-family:var(--font-body);
   font-size:16px; line-height:1.7; }
-.reading p { margin:0 0 1.1em; text-align:justify; hyphens:auto; }
-.reading p + p { text-indent:1.5em; margin-top:-0.35rem; }
+.longform p { margin:0 0 1.1em; text-align:justify; hyphens:auto; }
+.longform p + p { text-indent:1.5em; margin-top:-0.35rem; }
 /* document masthead (simple texts, e.g. Denzinger eras) */
-.reading .doc-hero { padding:64px 0 32px; }
-.reading .doc-hero h1 { font-family:var(--font-heading); font-weight:400; font-size:clamp(32px,5vw,48px);
+.longform .doc-hero { padding:64px 0 32px; }
+.longform .doc-hero h1 { font-family:var(--font-heading); font-weight:400; font-size:var(--title);
   line-height:1.15; margin:0; }
-.reading .subtitle { font-size:15px; margin:16px 0 0; color:color-mix(in srgb, var(--color-text) 70%, transparent); }
-.reading .pager { display:flex; justify-content:space-between; padding:32px 0;
+.longform .subtitle { font-size:15px; margin:16px 0 0; color:color-mix(in srgb, var(--color-text) 70%, transparent); }
+.longform .pager { display:flex; justify-content:space-between; padding:32px 0;
   border-top:1px solid var(--color-divider); font-size:14px; }
-.reading .pager a { color:var(--color-accent-700); text-decoration:none; }
-.reading .pager a:hover { text-decoration:underline; }
+.longform .pager a { color:var(--color-accent-700); text-decoration:none; }
+.longform .pager a:hover { text-decoration:underline; }
 /* rubricated pages (Ribet volumes) */
-.reading .titlepage { text-align:center; padding:4rem 0 3rem; border-bottom:1px solid var(--color-divider); }
-.reading .titlepage .over { letter-spacing:.35em; font-size:.85rem; text-transform:uppercase;
+.longform .titlepage { text-align:center; padding:4rem 0 3rem; border-bottom:1px solid var(--color-divider); }
+.longform .titlepage .over { letter-spacing:.35em; font-size:.85rem; text-transform:uppercase;
   color:color-mix(in srgb, var(--color-text) 55%, transparent); }
-.reading .titlepage h1 { font-family:var(--font-heading); font-size:2.6rem; font-weight:600; letter-spacing:.06em;
+.longform .titlepage h1 { font-family:var(--font-heading); font-size:var(--title); font-weight:600; letter-spacing:.06em;
   margin:.6rem 0 .2rem; color:var(--color-accent-700); text-transform:uppercase; line-height:1.2; }
-.reading .titlepage .sub { font-size:1.05rem; letter-spacing:.18em; text-transform:uppercase; margin:.4rem 0; }
-.reading .titlepage .vol { margin:2.2rem 0 0; font-size:1.25rem; letter-spacing:.1em; text-transform:uppercase; color:var(--color-accent-700); }
-.reading .titlepage .author { margin-top:2.2rem; font-variant:small-caps; letter-spacing:.12em; font-size:1.1rem; }
-.reading .titlepage .imprint { margin-top:2.6rem; font-size:.9rem; letter-spacing:.08em; color:color-mix(in srgb, var(--color-text) 55%, transparent); }
-.reading .fleuron { color:var(--color-accent-700); font-size:1.3rem; margin:1.4rem 0; text-align:center; }
-.reading .note { border:1px solid var(--color-divider); padding:1.1rem 1.4rem; margin:2.5rem 0; font-size:.98rem;
+.longform .titlepage .sub { font-size:1.05rem; letter-spacing:.18em; text-transform:uppercase; margin:.4rem 0; }
+.longform .titlepage .vol { margin:2.2rem 0 0; font-size:1.25rem; letter-spacing:.1em; text-transform:uppercase; color:var(--color-accent-700); }
+.longform .titlepage .author { margin-top:2.2rem; font-variant:small-caps; letter-spacing:.12em; font-size:1.1rem; }
+.longform .titlepage .imprint { margin-top:2.6rem; font-size:.9rem; letter-spacing:.08em; color:color-mix(in srgb, var(--color-text) 55%, transparent); }
+.longform .fleuron { color:var(--color-accent-700); font-size:1.3rem; margin:1.4rem 0; text-align:center; }
+.longform .note { border:1px solid var(--color-divider); padding:1.1rem 1.4rem; margin:2.5rem 0; font-size:.98rem;
   color:color-mix(in srgb, var(--color-text) 85%, transparent); }
-.reading .note b { font-variant:small-caps; letter-spacing:.06em; }
-.reading .toc h2 { font-family:var(--font-heading); font-variant:small-caps; font-weight:500; letter-spacing:.2em; text-align:center; margin:3rem 0 1.5rem; }
-.reading .toc ol { list-style:none; padding:0; margin:0; }
-.reading .toc li { margin:.45rem 0; display:flex; gap:.7rem; align-items:baseline; }
-.reading .toc .n { color:var(--color-accent-700); min-width:2.6rem; font-variant:small-caps; }
-.reading .toc a { color:inherit; text-decoration:none; border-bottom:1px dotted var(--color-divider); }
-.reading .toc a:hover { color:var(--color-accent-700); }
-.reading .toc .part { margin:1.4rem 0 .6rem; font-variant:small-caps; letter-spacing:.14em; color:var(--color-accent-700); }
-.reading .part-break { text-align:center; margin:5rem 0 0; padding-top:3rem; border-top:1px solid var(--color-divider);
+.longform .note b { font-variant:small-caps; letter-spacing:.06em; }
+.longform .toc h2 { font-family:var(--font-heading); font-variant:small-caps; font-weight:500; letter-spacing:.2em; text-align:center; margin:3rem 0 1.5rem; }
+.longform .toc ol { list-style:none; padding:0; margin:0; }
+.longform .toc li { margin:.45rem 0; display:flex; gap:.7rem; align-items:baseline; }
+.longform .toc .n { color:var(--color-accent-700); min-width:2.6rem; font-variant:small-caps; }
+.longform .toc a { color:inherit; text-decoration:none; border-bottom:1px dotted var(--color-divider); }
+.longform .toc a:hover { color:var(--color-accent-700); }
+.longform .toc .part { margin:1.4rem 0 .6rem; font-variant:small-caps; letter-spacing:.14em; color:var(--color-accent-700); }
+.longform .part-break { text-align:center; margin:5rem 0 0; padding-top:3rem; border-top:1px solid var(--color-divider);
   font-variant:small-caps; letter-spacing:.22em; font-size:1.25rem; color:var(--color-accent-700); }
-.reading h2.chap { font-family:var(--font-heading); font-weight:500; text-align:center; margin:4.5rem 0 0;
+.longform h2.chap { font-family:var(--font-heading); font-weight:500; text-align:center; margin:4.5rem 0 0;
   letter-spacing:.3em; font-size:1rem; color:var(--color-accent-700); text-transform:uppercase; }
-.reading h3.chaptitle { font-family:var(--font-heading); font-weight:500; text-align:center; margin:.5rem 0 2rem;
+.longform h3.chaptitle { font-family:var(--font-heading); font-weight:500; text-align:center; margin:.5rem 0 2rem;
   font-size:1.5rem; letter-spacing:.05em; font-variant:small-caps; }
-.reading h4.inhead { font-family:var(--font-heading); font-weight:600; font-variant:small-caps; letter-spacing:.1em;
+.longform h4.inhead { font-family:var(--font-heading); font-weight:600; font-variant:small-caps; letter-spacing:.1em;
   text-align:center; margin:2.6rem 0 1rem; font-size:1.1rem; }
-.reading p.arg { font-style:italic; font-size:1.02rem; border-left:2px solid var(--color-accent-700);
+.longform p.arg { font-style:italic; font-size:1.02rem; border-left:2px solid var(--color-accent-700);
   padding-left:1rem; margin:1.5rem 0 2rem; text-align:left; text-indent:0;
   color:color-mix(in srgb, var(--color-text) 82%, transparent); }
-.reading a.top { position:fixed; bottom:1rem; right:1rem; text-decoration:none; font-size:.85rem;
+.longform a.top { position:fixed; bottom:1rem; right:1rem; text-decoration:none; font-size:.85rem;
   color:color-mix(in srgb, var(--color-text) 55%, transparent); }
-@media (max-width:480px){ .reading main { font-size:1.02rem; } .reading .titlepage h1 { font-size:1.9rem; } }
+@media (max-width:480px){ .longform main { font-size:1.02rem; } .longform .titlepage h1 { font-size:var(--title); } }
 
