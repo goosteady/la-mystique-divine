@@ -1,45 +1,49 @@
+/* GENERATED FILE — DO NOT EDIT.
+   Source: breviarium/design/*.css. Edit there, then run design/sync.sh. */
+
 /* Classical — design-system tokens and component classes. This file is the source of truth for the system's look; retune it here and see readme.md. */
 @import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;600&family=Lora:wght@400;600&display=swap');
 
 :root {
-  --color-bg: #f3f2f2;
-  --color-surface: #eae9e9;
-  --color-text: #201f1d;
-  --color-accent: #b68235;
-  --color-accent-2: #ac803e;
-  --color-divider: color-mix(in srgb, #201f1d 16%, transparent);
+  /* "Scriptorium" — warm manuscript palette (2026-07). Espresso ink + amber
+     on parchment; the whole system derives from these via color-mix. */
+  --color-bg: #f4ecda;       /* parchment */
+  --color-surface: #eaddc0;  /* deeper parchment — matting, thumbs */
+  --color-text: #33271b;     /* espresso ink */
+  --color-accent: #b07d20;   /* amber-gold */
+  --color-accent-2: #a2701f;
+  --color-divider: color-mix(in srgb, #33271b 15%, transparent);
 
-  /* Tonal ramps — generated in OKLCH on one shared lightness scale, so the
-     same step of any role matches the others in visual value. */
-  --color-neutral-100: #f8f4f4;
-  --color-neutral-200: #eae7e7;
-  --color-neutral-300: #d7d3d3;
-  --color-neutral-400: #bab6b6;
-  --color-neutral-500: #9b9797;
-  --color-neutral-600: #7d7979;
-  --color-neutral-700: #605d5d;
-  --color-neutral-800: #444141;
-  --color-neutral-900: #2d2b2b;
+  /* Tonal ramps — one shared lightness scale, warmed toward ink/parchment. */
+  --color-neutral-100: #f8f1e2;
+  --color-neutral-200: #ece0c8;
+  --color-neutral-300: #dccba8;
+  --color-neutral-400: #c4b189;
+  --color-neutral-500: #a8946c;
+  --color-neutral-600: #897651;
+  --color-neutral-700: #6a5a3d;
+  --color-neutral-800: #4b3f2c;
+  --color-neutral-900: #33291c;
 
-  --color-accent-100: #fff3e4;
-  --color-accent-200: #ffe3bf;
-  --color-accent-300: #facb8d;
-  --color-accent-400: #e1ad66;
-  --color-accent-500: #c28d41;
-  --color-accent-600: #a06f24;
-  --color-accent-700: #7d5411;
-  --color-accent-800: #5a3b0a;
-  --color-accent-900: #3a270d;
+  --color-accent-100: #fbf1d9;
+  --color-accent-200: #f5ddab;
+  --color-accent-300: #e8c47c;
+  --color-accent-400: #d5a64d;
+  --color-accent-500: #bd8a2f;  /* the identity amber (logo rays) */
+  --color-accent-600: #9e6f1f;
+  --color-accent-700: #7d5614;
+  --color-accent-800: #5b3e0d;
+  --color-accent-900: #3c2909;
 
-  --color-accent-2-100: #fff3e4;
-  --color-accent-2-200: #ffe3be;
-  --color-accent-2-300: #f5cd96;
-  --color-accent-2-400: #dbaf70;
-  --color-accent-2-500: #bc8f4e;
-  --color-accent-2-600: #9b7232;
-  --color-accent-2-700: #79561f;
-  --color-accent-2-800: #573d14;
-  --color-accent-2-900: #382810;
+  --color-accent-2-100: #faf0d7;
+  --color-accent-2-200: #f0d7a2;
+  --color-accent-2-300: #dcbc78;
+  --color-accent-2-400: #c39c53;
+  --color-accent-2-500: #a67e37;
+  --color-accent-2-600: #886422;
+  --color-accent-2-700: #684c19;
+  --color-accent-2-800: #4a3512;
+  --color-accent-2-900: #30240e;
 
   --font-heading: "Cormorant Garamond", system-ui, sans-serif;
   --font-heading-weight: 600; /* review round 3: bold retired — semibold is the
@@ -60,9 +64,9 @@
 
   /* Elevation — derived from the ground: soft ink-tinted shadows on a
      light theme, a hairline edge + ambient darkness on a dark one. */
-  --shadow-sm: 0 1px 2px color-mix(in srgb, #2d2b2b 14%, transparent);
-  --shadow-md: 0 3px 10px color-mix(in srgb, #2d2b2b 16%, transparent);
-  --shadow-lg: 0 12px 32px color-mix(in srgb, #2d2b2b 22%, transparent);
+  --shadow-sm: 0 1px 2px color-mix(in srgb, #33291c 15%, transparent);
+  --shadow-md: 0 3px 10px color-mix(in srgb, #33291c 17%, transparent);
+  --shadow-lg: 0 12px 32px color-mix(in srgb, #33291c 24%, transparent);
 }
 
 body {
