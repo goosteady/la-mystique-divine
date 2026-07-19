@@ -14,6 +14,6 @@ jobs:
         run: npm install -g @railway/cli
       - name: Deploy
         run: |
-          railway up --project 91902995-2399-4ee8-932b-34ea7e588a4d --environment aa70aa31-33f9-44f4-8675-d34d06aa7ace --service=la-mystique-divine --detach
+          railway up --project 9eabd329-9209-46d9-94bf-fad266664d00 --environment 8df6f2af-fed6-49d0-8b76-be21f958b42b --service=la-mystique-divine --detach
         env:
           RAILWAY_API_TOKEN: ${{ secrets.RAILWAY_TOKEN }}
