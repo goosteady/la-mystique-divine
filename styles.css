@@ -256,3 +256,174 @@ textarea.input { min-height: 90px; resize: vertical; }
 .dialog-body { font-size: 14px; opacity: 0.85; }
 .dialog-actions { display: flex; justify-content: flex-end; gap: var(--space-2); margin-top: var(--space-2); }
 
+/* ══════════════════════════════════════════════════════════════════════════
+   Site pages — breviarium.ink chrome, landing, and long-form reading.
+   Promoted here from per-page inline <style> so one sheet is the whole look.
+   Every page links this (served centrally at /styles.css by the gateway).
+   ══════════════════════════════════════════════════════════════════════ */
+
+/* — page container (wide, for landing/index) — */
+.wrap { max-width: 1200px; margin: 0 auto; padding: 0 clamp(20px,5vw,72px); }
+
+/* — masthead (shared by every page) — */
+.site-nav { display:flex; align-items:center; gap:26px; padding:16px clamp(20px,5vw,48px);
+  border-bottom:1px solid var(--color-divider); background:var(--color-bg); flex-wrap:wrap; }
+.site-nav .brand { display:flex; align-items:center; margin-right:auto; color:var(--color-text); text-decoration:none; }
+.site-nav .brand .wordmark { height:44px; width:auto; display:block; }
+.site-nav a:not(.brand) { font-size:14px; color:var(--color-text); text-decoration:none; }
+.site-nav a:not(.brand):hover, .site-nav a.current { color:var(--color-accent-700); }
+@media (max-width:720px){ .site-nav .brand .wordmark { height:38px; } }
+
+/* Texts dropdown (gateway masthead); JS-free via :focus-within */
+.nav-group { position: relative; display: inline-flex; }
+.nav-group > .nav-toggle {
+  font: inherit; font-size: 14px; color: var(--color-text);
+  background: none; border: 0; padding: 0; cursor: pointer;
+  display: inline-flex; align-items: center; gap: 5px;
+}
+.nav-group > .nav-toggle::after {
+  content: ""; width: 5px; height: 5px; border-right: 1.4px solid currentColor;
+  border-bottom: 1.4px solid currentColor; transform: translateY(-1px) rotate(45deg); opacity: .6;
+}
+.nav-group:hover > .nav-toggle, .nav-group:focus-within > .nav-toggle { color: var(--color-accent-700); }
+.nav-menu {
+  position: absolute; top: calc(100% + 8px); right: 0; left: auto; min-width: 236px;
+  display: none; flex-direction: column; gap: 1px; padding: 6px;
+  background: var(--color-bg); border: 1px solid var(--color-divider);
+  border-radius: 7px; box-shadow: var(--shadow-md); z-index: 30;
+}
+.nav-group:hover .nav-menu, .nav-group:focus-within .nav-menu { display: flex; }
+.nav-menu a {
+  padding: 8px 12px; border-radius: 4px; font-size: 14px; white-space: nowrap;
+  color: var(--color-text); text-decoration: none;
+}
+.nav-menu a:hover, .nav-menu a[aria-current='page'] {
+  background: color-mix(in srgb, var(--color-text) 6%, transparent); color: var(--color-accent-700);
+}
+
+/* — shared bits — */
+.kicker { display:block; font-size:13px; line-height:14px; letter-spacing:0.08em;
+  text-transform:uppercase; color:var(--color-accent-700); margin:0 0 14px; }
+.rule { height:1px; border:0; margin:0; background:var(--color-divider); }
+.actions { display:flex; gap:14px; flex-wrap:wrap; margin-top:26px; }
+.foot { padding:40px 0; font-size:13px; line-height:22px;
+  color:color-mix(in srgb, var(--color-text) 70%, transparent);
+  display:flex; justify-content:space-between; flex-wrap:wrap; gap:12px;
+  border-top:1px solid var(--color-divider); }
+.foot a { color:inherit; text-decoration:none; }
+.foot a:hover { color:var(--color-accent-700); }
+.foot .links { display:flex; gap:18px; }
+.breadcrumb { font-size:12.5px; line-height:20px; margin:28px 0 0;
+  color:color-mix(in srgb, var(--color-text) 60%, transparent); }
+.breadcrumb a { color:var(--color-accent-700); text-decoration:none; }
+.breadcrumb a:hover { color:var(--color-accent-900); text-decoration:underline; }
+
+/* — landing hero + collections — */
+.hero { padding:76px 0 64px; }
+.hero h1 { font-family:var(--font-heading); font-weight:400; font-size:clamp(34px,4.4vw,54px);
+  line-height:1.1; letter-spacing:-0.01em; margin:0; }
+.hero h1 span { display:block; }
+.hero p { font-size:17px; line-height:28px; max-width:58ch; margin:28px 0 0;
+  color:color-mix(in srgb, var(--color-text) 80%, transparent); }
+.section { padding:64px 0 40px; }
+.section h2 { font-family:var(--font-heading); font-weight:400; font-size:34px; line-height:42px;
+  letter-spacing:-0.008em; margin:0 0 40px; max-width:32ch; }
+.collections { display:grid; grid-template-columns:repeat(auto-fit, minmax(240px, 1fr)); gap:20px; }
+.collection { text-decoration:none; color:inherit; display:flex; flex-direction:column; gap:9px;
+  padding:22px; border-radius:4px; border:1px solid var(--color-divider); transition:border-color 0.2s ease; }
+.collection:hover { border-color:var(--color-accent); }
+.collection .c-kicker { font-size:10px; letter-spacing:0.1em; text-transform:uppercase; color:var(--color-accent-700); }
+.collection .c-title { font-family:var(--font-heading); font-weight:600; font-size:20px; line-height:1.2; }
+.collection .c-desc { font-size:13.5px; opacity:0.78; flex:1; line-height:1.5; }
+.collection .c-thumb { margin:-22px -22px 4px; aspect-ratio:16/10; overflow:hidden;
+  background:var(--color-surface); border-bottom:1px solid var(--color-divider); border-radius:4px 4px 0 0; }
+.collection .c-thumb img { width:100%; height:100%; object-fit:cover; object-position:center 22%;
+  filter:sepia(0.22) saturate(0.82) contrast(1.05); transition:transform .5s ease; }
+.collection:hover .c-thumb img { transform:scale(1.04); }
+
+/* — art plates (matted public-domain reproductions) — */
+.plate-figure { margin: 0; width: min(420px, 100%); }
+.plate-figure .plate img { display: block; width: 100%; height: auto; }
+.plate-figure .plate .plate-link { display: block; cursor: zoom-in; }
+.plate-figure figcaption { font-size: 11px; margin-top: var(--space-2); text-align:center;
+  color: color-mix(in srgb, var(--color-text) 55%, transparent); }
+.frieze { padding:8px 0 4px; }
+.frieze-row { display:grid; grid-template-columns:repeat(3, 1fr); gap:18px; }
+.frieze .plate-figure { width:100%; margin:0; }
+.art { display:grid; grid-template-columns:minmax(0,7fr) minmax(0,5fr); gap:28px clamp(24px,5vw,96px);
+  align-items:center; padding:56px 0 40px; }
+.art h2 { font-family:var(--font-heading); font-weight:400; font-size:34px; line-height:42px;
+  letter-spacing:-0.008em; margin:0; }
+.art p { font-size:15.5px; line-height:28px; margin:20px 0 0; max-width:48ch; text-align:justify; hyphens:auto;
+  color:color-mix(in srgb, var(--color-text) 78%, transparent); }
+.art .plate-figure { justify-self:end; }
+.gallery-strip { display:grid; grid-template-columns:repeat(3, 1fr); gap:20px; padding:0 0 84px; }
+.gallery-strip .plate-figure { width:100%; margin:0; }
+.quote { display:grid; grid-template-columns:minmax(0,6fr) minmax(0,5fr); gap:28px clamp(24px,5vw,72px);
+  align-items:center; padding:60px 0 84px; }
+.quote blockquote { font-family:var(--font-heading); font-weight:400; font-size:clamp(26px,2.8vw,36px);
+  line-height:42px; letter-spacing:-0.005em; max-width:34ch; margin:0; text-indent:-0.34em; }
+.quote figcaption { font-size:15.5px; line-height:28px; margin:20px 0 0;
+  color:color-mix(in srgb, var(--color-text) 70%, transparent); }
+.quote .plate-figure { justify-self:end; width:min(360px,100%); }
+@media (max-width:720px){
+  .frieze-row { grid-template-columns:1fr 1fr; } .frieze-row .fr-3 { display:none; }
+  .gallery-strip { grid-template-columns:1fr 1fr; } .gallery-strip .gs-3 { display:none; }
+  .art { grid-template-columns:1fr; } .art .plate-figure { justify-self:start; }
+  .quote { grid-template-columns:1fr; } .quote .plate-figure { justify-self:start; }
+  .hero { padding:56px 0 48px; }
+}
+
+/* ── Reader — long-form texts (Ribet, Denzinger, treatises). Narrow measure,
+      Lora body, Cormorant display, deep-amber rubric. Scoped so it never
+      collides with the landing hero/wrap. ── */
+.reading { max-width: 44rem; margin: 0 auto; padding: 0 clamp(20px,5vw,44px); }
+.reading main, .reading .prose { padding:40px 0 100px; font-family:var(--font-body);
+  font-size:16px; line-height:1.7; }
+.reading p { margin:0 0 1.1em; text-align:justify; hyphens:auto; }
+.reading p + p { text-indent:1.5em; margin-top:-0.35rem; }
+/* document masthead (simple texts, e.g. Denzinger eras) */
+.reading .doc-hero { padding:64px 0 32px; }
+.reading .doc-hero h1 { font-family:var(--font-heading); font-weight:400; font-size:clamp(32px,5vw,48px);
+  line-height:1.15; margin:0; }
+.reading .subtitle { font-size:15px; margin:16px 0 0; color:color-mix(in srgb, var(--color-text) 70%, transparent); }
+.reading .pager { display:flex; justify-content:space-between; padding:32px 0;
+  border-top:1px solid var(--color-divider); font-size:14px; }
+.reading .pager a { color:var(--color-accent-700); text-decoration:none; }
+.reading .pager a:hover { text-decoration:underline; }
+/* rubricated pages (Ribet volumes) */
+.reading .titlepage { text-align:center; padding:4rem 0 3rem; border-bottom:1px solid var(--color-divider); }
+.reading .titlepage .over { letter-spacing:.35em; font-size:.85rem; text-transform:uppercase;
+  color:color-mix(in srgb, var(--color-text) 55%, transparent); }
+.reading .titlepage h1 { font-family:var(--font-heading); font-size:2.6rem; font-weight:600; letter-spacing:.06em;
+  margin:.6rem 0 .2rem; color:var(--color-accent-700); text-transform:uppercase; line-height:1.2; }
+.reading .titlepage .sub { font-size:1.05rem; letter-spacing:.18em; text-transform:uppercase; margin:.4rem 0; }
+.reading .titlepage .vol { margin:2.2rem 0 0; font-size:1.25rem; letter-spacing:.1em; text-transform:uppercase; color:var(--color-accent-700); }
+.reading .titlepage .author { margin-top:2.2rem; font-variant:small-caps; letter-spacing:.12em; font-size:1.1rem; }
+.reading .titlepage .imprint { margin-top:2.6rem; font-size:.9rem; letter-spacing:.08em; color:color-mix(in srgb, var(--color-text) 55%, transparent); }
+.reading .fleuron { color:var(--color-accent-700); font-size:1.3rem; margin:1.4rem 0; text-align:center; }
+.reading .note { border:1px solid var(--color-divider); padding:1.1rem 1.4rem; margin:2.5rem 0; font-size:.98rem;
+  color:color-mix(in srgb, var(--color-text) 85%, transparent); }
+.reading .note b { font-variant:small-caps; letter-spacing:.06em; }
+.reading .toc h2 { font-family:var(--font-heading); font-variant:small-caps; font-weight:500; letter-spacing:.2em; text-align:center; margin:3rem 0 1.5rem; }
+.reading .toc ol { list-style:none; padding:0; margin:0; }
+.reading .toc li { margin:.45rem 0; display:flex; gap:.7rem; align-items:baseline; }
+.reading .toc .n { color:var(--color-accent-700); min-width:2.6rem; font-variant:small-caps; }
+.reading .toc a { color:inherit; text-decoration:none; border-bottom:1px dotted var(--color-divider); }
+.reading .toc a:hover { color:var(--color-accent-700); }
+.reading .toc .part { margin:1.4rem 0 .6rem; font-variant:small-caps; letter-spacing:.14em; color:var(--color-accent-700); }
+.reading .part-break { text-align:center; margin:5rem 0 0; padding-top:3rem; border-top:1px solid var(--color-divider);
+  font-variant:small-caps; letter-spacing:.22em; font-size:1.25rem; color:var(--color-accent-700); }
+.reading h2.chap { font-family:var(--font-heading); font-weight:500; text-align:center; margin:4.5rem 0 0;
+  letter-spacing:.3em; font-size:1rem; color:var(--color-accent-700); text-transform:uppercase; }
+.reading h3.chaptitle { font-family:var(--font-heading); font-weight:500; text-align:center; margin:.5rem 0 2rem;
+  font-size:1.5rem; letter-spacing:.05em; font-variant:small-caps; }
+.reading h4.inhead { font-family:var(--font-heading); font-weight:600; font-variant:small-caps; letter-spacing:.1em;
+  text-align:center; margin:2.6rem 0 1rem; font-size:1.1rem; }
+.reading p.arg { font-style:italic; font-size:1.02rem; border-left:2px solid var(--color-accent-700);
+  padding-left:1rem; margin:1.5rem 0 2rem; text-align:left; text-indent:0;
+  color:color-mix(in srgb, var(--color-text) 82%, transparent); }
+.reading a.top { position:fixed; bottom:1rem; right:1rem; text-decoration:none; font-size:.85rem;
+  color:color-mix(in srgb, var(--color-text) 55%, transparent); }
+@media (max-width:480px){ .reading main { font-size:1.02rem; } .reading .titlepage h1 { font-size:1.9rem; } }
+
